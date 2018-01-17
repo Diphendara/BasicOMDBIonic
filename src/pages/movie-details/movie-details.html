@@ -7,11 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{title}}'s details</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-item> 
+      <div style="text-align: center">
+        <img width="200px" [src]="movie?.Poster">
+      </div>
+  </ion-item>
   <ion-item>
     <ion-label>Year</ion-label>
     <ion-badge item-right>{{movie?.Year}}</ion-badge>
@@ -32,9 +37,6 @@
     <ion-label>Director</ion-label>
     <ion-badge item-right>{{movie?.Director}}</ion-badge>
   </ion-item>
-  <ion-item>
-      <ion-title>Plot</ion-title>
-  </ion-item>
-  <ion-content item-right>{{movie?.Plot}}</ion-content>
-
+  <ion-title>Plot</ion-title>
+  <ion-content>{{movie?.Plot}}</ion-content>
 </ion-content>
