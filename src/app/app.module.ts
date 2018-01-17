@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { MoviesPage } from '../pages/movies/movies';
+import { MovieSearchProvider } from '../providers/movie-search';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MoviesPage } from '../pages/movies/movies';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MovieSearchProvider
   ]
 })
 export class AppModule {}

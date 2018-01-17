@@ -8,6 +8,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+import { Search } from '../../models/search';
+import { MovieSearchProvider } from '../../providers/movie-search';
+
+
 @IonicPage()
 @Component({
   selector: 'page-movies',
