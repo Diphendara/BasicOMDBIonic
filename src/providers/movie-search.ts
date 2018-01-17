@@ -23,20 +23,15 @@ export class MovieSearchProvider {
 
   constructor(public http: Http) {  }
 
-  // Load base data
-  load(): Observable<Search[]> {
-    return this.http.get(`${this.omdbApiUrl}?s=batman&apikey=${apiKey}`)
-      .map(res => <Search[]>res.json()['Search']);
-  }
-
   loadDetails(imdbID: string): Observable<Movie> {
     return this.http.get(`${this.omdbApiUrl}/?i=${imdbID}&apikey=${apiKey}`)
       .map(res => <Movie>(res.json()))
   }
 
-  searchMovies(searchParam: string): Observable<Search[]> {
+  searchMovies(searchParam: string): Observable<Array<Search>> {
+    console.log(`${this.omdbApiUrl}/?s=${searchParam}&apikey=${apiKey}`);
     return this.http.get(`${this.omdbApiUrl}/?s=${searchParam}&apikey=${apiKey}`) 
-      .map(res => <Search[]>(res.json().items))
+      .map(res => <Search[]>(res.json()['Search']))
   }
 
 }
