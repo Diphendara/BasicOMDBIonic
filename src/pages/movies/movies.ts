@@ -24,7 +24,7 @@ export class MoviesPage {
   originalMovies: Search[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private searchsProvider: MovieSearchProvider) {
-    searchsProvider.searchMovies('Batman').subscribe(movies => {
+    searchsProvider.searchMovies('Guardians').subscribe(movies => {
       this.movies = movies;
       this.originalMovies = movies;
     })
