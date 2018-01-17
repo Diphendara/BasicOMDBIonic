@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
   and Angular DI.
 */
 
-import { Search } from '../models/search';
+import { SearchResult } from '../models/searchResult';
 import { Movie } from '../models/movie';
 
 import apiKey from "../../key";
@@ -28,9 +28,9 @@ export class MovieSearchProvider {
       .map(res => <Movie>(res.json()))
   }
 
-  searchMovies(searchParam: string): Observable<Array<Search>> {
+  searchMovies(searchParam: string): Observable<Array<SearchResult>> {
     return this.http.get(`${this.omdbApiUrl}/?s=${searchParam}&type=movie&apikey=${apiKey}`) 
-      .map(res => <Search[]>(res.json()['Search']))
+      .map(res => <SearchResult[]>(res.json()['Search']))
   }
 
 }

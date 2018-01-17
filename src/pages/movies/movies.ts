@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-import { Search } from '../../models/search';
+import { SearchResult } from '../../models/searchResult';
 import { MovieDetailsPage } from '../../pages/movie-details/movie-details';
 import { MovieSearchProvider } from '../../providers/movie-search';
 
@@ -20,8 +20,8 @@ import { MovieSearchProvider } from '../../providers/movie-search';
 })
 export class MoviesPage {
 
-  movies: Search[];
-  originalMovies: Search[];
+  movies: SearchResult[];
+  originalMovies: SearchResult[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private searchsProvider: MovieSearchProvider) {
     searchsProvider.searchMovies('Guardians').subscribe(movies => {
