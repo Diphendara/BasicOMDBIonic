@@ -4,16 +4,20 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { MyApp } from './app.component';
+
 import { HttpModule } from '@angular/http'; //Added to avoid 'StaticInjectorError[e]:' error
 
-import { MyApp } from './app.component';
 import { MoviesPage } from '../pages/movies/movies';
+import { MovieDetailsPage } from '../pages/movie-details/movie-details';
+
 import { MovieSearchProvider } from '../providers/movie-search';
 
 @NgModule({
   declarations: [
     MyApp,
-    MoviesPage
+    MoviesPage,
+    MovieDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,8 @@ import { MovieSearchProvider } from '../providers/movie-search';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MoviesPage
+    MoviesPage,
+    MovieDetailsPage
   ],
   providers: [
     StatusBar,

@@ -16,7 +16,7 @@
 <ion-content padding>
     <ion-searchbar (input)="searchMovie($event)"></ion-searchbar>
     <ion-list>
-        <button ion-item *ngFor="let search of movies">
+        <button ion-item *ngFor="let search of movies" (click)="goToDetails(search.imdbID, search.Title)">
           <h2>{{ search.Title }}</h2>
           <ion-icon name="arrow-forward" item-right></ion-icon>
         </button>

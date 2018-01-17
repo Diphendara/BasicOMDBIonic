@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 
 import { Search } from '../../models/search';
+import { MovieDetailsPage } from '../../pages/movie-details/movie-details';
 import { MovieSearchProvider } from '../../providers/movie-search';
 
 
@@ -28,6 +29,11 @@ export class MoviesPage {
       console.log(movies); //TODO delete this
         }) 
        }
+
+  goToDetails(imdbID: string, title: string) {
+    this.navCtrl.push(MovieDetailsPage, {imdbID,title});
+    }
+
 
   searchMovie(searchEvent) {
     let term = searchEvent.target.value

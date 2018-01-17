@@ -11,7 +11,10 @@ import 'rxjs/add/operator/map';
 */
 
 import { Search } from '../models/search';
+import { Movie } from '../models/movie';
+
 import apiKey from "../../key";
+
 
 
 @Injectable()
@@ -24,6 +27,11 @@ export class MovieSearchProvider {
   load(): Observable<Search[]> {
     return this.http.get(`${this.omdbApiUrl}?s=batman&apikey=${apiKey}`)
       .map(res => <Search[]>res.json()['Search']);
+  }
+
+  loadDetails(imdbID: string): Observable<Movie> {
+    return this.http.get(`${this.omdbApiUrl}/?i=${imdbID}&apikey=${apiKey}`)
+      .map(res => <Movie>(res.json()))
   }
 
   searchMovies(searchParam: string): Observable<Search[]> {
