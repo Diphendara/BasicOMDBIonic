@@ -19,7 +19,28 @@ import { MovieSearchProvider } from '../../providers/movie-search';
 })
 export class MoviesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  movies: Search[];
+  originalMovies: Search[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private searchsProvider: MovieSearchProvider) {
+    searchsProvider.load().subscribe(movies => {
+      this.movies = movies;
+      console.log(movies); //TODO delete this
+        }) 
+       }
+
+  searchMovie(searchEvent) {
+    let term = searchEvent.target.value
+    // We will only perform the search if we have 3 or more characters
+    if (term.trim() === '' || term.trim().length < 3) {
+      // Load cached users
+      this.movies = this.originalMovies;
+    } else {
+      // Get the searched users from github
+      this.searchsProvider.searchMovies(term).subscribe(movies => {
+        this.movies = movies
+      });
+    }
   }
 
   ionViewDidLoad() {

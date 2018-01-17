@@ -1,8 +1,8 @@
 
 export interface Search{
-    title: string;
-    year: number;
+    Poster: string;
+    Title: string;
+    Year: number;
     imdbID: string;
-    type: string;
-    poster: string;
+    Type: string;
 }
