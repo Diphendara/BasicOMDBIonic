@@ -24,25 +24,21 @@ export class MoviesPage {
   originalMovies: Search[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private searchsProvider: MovieSearchProvider) {
-    searchsProvider.load().subscribe(movies => {
+    searchsProvider.searchMovies('Batman').subscribe(movies => {
       this.movies = movies;
-      console.log(movies); //TODO delete this
-        }) 
-       }
+      this.originalMovies = movies;
+    })
+  }
 
   goToDetails(imdbID: string, title: string) {
-    this.navCtrl.push(MovieDetailsPage, {imdbID,title});
-    }
-
+    this.navCtrl.push(MovieDetailsPage, { imdbID, title });
+  }
 
   searchMovie(searchEvent) {
     let term = searchEvent.target.value
-    // We will only perform the search if we have 3 or more characters
     if (term.trim() === '' || term.trim().length < 3) {
-      // Load cached users
       this.movies = this.originalMovies;
     } else {
-      // Get the searched users from github
       this.searchsProvider.searchMovies(term).subscribe(movies => {
         this.movies = movies
       });
