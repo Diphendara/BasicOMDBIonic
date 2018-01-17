@@ -1,0 +1,8 @@
+{
+  "name": "BasicOMDBIonic",
+  "app_id": "771b5897",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
