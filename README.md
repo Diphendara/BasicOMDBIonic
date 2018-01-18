@@ -26,11 +26,3 @@ or
 ```bash
 $ ionic serve -l
 ```
-This will open the app wrapped in each platform mode (android, ios and windows phone).
-
-If you want to build the app for your mobile phone:
-```bash
-$ ionic platform add android
-$ ionic build android
-$ ionic run android
-```
